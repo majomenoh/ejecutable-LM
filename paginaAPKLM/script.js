@@ -1,21 +1,15 @@
 document.getElementById("downloadAndroidBtn").addEventListener("click", function() {
-    const apkUrl = "https://raw.githubusercontent.com/majomenoh/ejecutable-LM/main/app-release.apk"; // URL real del APK
-    iniciarDescarga(apkUrl, "LibroMayor.apk");
+    const apkUrl = "https://github.com/majomenoh/ejecutable-LM/raw/main/app-release.apk"; // URL directa del APK
+    iniciarDescarga(apkUrl);
     document.getElementById("message").textContent = "✅ Descarga de la versión para Android iniciada. Revisa tu carpeta de descargas.";
 });
 
 document.getElementById("downloadWindowsBtn").addEventListener("click", function() {
-    const exeUrl = "https://raw.githubusercontent.com/majomenoh/ejecutable-LM/main/Release.rar"; // URL real del RAR
-    iniciarDescarga(exeUrl, "LibroMayor.rar");
+    const exeUrl = "https://github.com/majomenoh/ejecutable-LM/raw/main/Release.rar"; // URL directa del RAR
+    iniciarDescarga(exeUrl);
     document.getElementById("message").textContent = "✅ Descarga de la versión para Windows iniciada. Revisa tu carpeta de descargas.";
 });
 
-function iniciarDescarga(url, nombreArchivo) {
-    let link = document.createElement("a");
-    link.href = url;
-    link.setAttribute("download", nombreArchivo);
-    link.setAttribute("target", "_blank");
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+function iniciarDescarga(url) {
+    window.open(url, "_blank");
 }
